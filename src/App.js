@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+import Login from './pages/Login';
 
 function App() {
   return (
     <div>
-      <h1>App de Investimento</h1>
+      <Route exact path="/" component={ Login } />
     </div>
   );
 }
