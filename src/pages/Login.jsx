@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from '../components/Input';
+import Button from '../components/Button';
 
 class Login extends React.Component {
   constructor() {
@@ -12,6 +14,11 @@ class Login extends React.Component {
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+  }
+
+  handleClick = () => {
+    const { history } = this.props;
+    history.push('/myStocks');
   }
 
   render() {
@@ -38,10 +45,25 @@ class Login extends React.Component {
             value={ userPassword }
             onChange={ this.handleChange }
           />
+
+          <Button 
+            id="login-button"
+            label="Entrar"
+            name="loginButton"
+            type="button"
+            disabled={ false }
+            onClick={ this.handleClick }
+          />
         </form>
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Login;
