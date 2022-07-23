@@ -1,11 +1,10 @@
 import React from "react";
+import Header from "../components/Header";
 
 class Stocks extends React.Component {
   render() {
     return (
-      <div>
-        <h2>Minhas Ações</h2>
-      </div>
+      <Header />
     );
   }
 }
