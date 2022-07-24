@@ -13,15 +13,19 @@ class Button extends React.Component {
     } = this.props;
 
     return (
-      <button
-        name={ name }
-        type={ type }
-        data-testid={ id }
-        disabled={ disabled }
-        onClick={ onClick }
-      >
-        { label }
-      </button>
+      <div>
+        <button className='uppercase cursor-pointer text-center 
+                           hover:text-alice hover:bg-lavender m-10 p-3 rounded-md bg-mauve 
+                           disabled:border-2 disabled:border-mauve disabled:text-mauve disabled:cursor-not-allowed disabled:bg-alice'
+          name={ name }
+          type={ type }
+          data-testid={ id }
+          disabled={ disabled }
+          onClick={ onClick }
+        >
+          { label }
+        </button>
+      </div>
     );
   }
 }

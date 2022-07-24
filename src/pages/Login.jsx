@@ -29,23 +29,24 @@ class Login extends React.Component {
     const { userEmail, userPassword } = this.state;
     return (
       <div>
-        <form>
+        <div className='m-10 text-2xl text-center'>Login</div>
+        <form className='grid justify-items-center space-y-6 text-xl'>
           <Input 
-            label="Email"
             idFor="email"
             name="userEmail"
             type="email"
             id="email-input"
+            placeholder="you@mail.com"
             value={ userEmail }
             onChange={ this.handleChange }
           />
 
           <Input 
-            label="Senha"
             idFor="password"
             name="userPassword"
             type="password"
             id="password-input"
+            placeholder="Senha"
             value={ userPassword }
             onChange={ this.handleChange }
           />
