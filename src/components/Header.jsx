@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import Button from './Button';
 
 class Header extends React.Component {
   render() {
@@ -13,23 +13,7 @@ class Header extends React.Component {
         <div><h2 data-testid="balance-field">{ balance.toFixed(2) }</h2></div>
 
         <div>
-          <Button 
-            id="draw-button"
-            label="Sacar"
-            name="drawButton"
-            type="button"
-            disabled={ false }
-            onClick={ this.handleClick }
-          />
-
-          <Button 
-            id="deposit-button"
-            label="Depositar"
-            name="depositButton"
-            type="button"
-            disabled={ false }
-            onClick={ this.handleClick }
-          />
+          <Link to="/draw" data-testid="link-to-draw"> Sacar </Link>
         </div>
       </header>
     );
