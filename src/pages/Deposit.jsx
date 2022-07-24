@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeBalance } from '../actions';
 
-class Draw extends React.Component {
+class Deposit extends React.Component {
   constructor() {
     super();
     this.state = {
-      valueDraw: 0,
+      valueDeposit: 0,
     };
   }
   
@@ -18,25 +18,24 @@ class Draw extends React.Component {
   }
 
   handleClick = () => {
-    const { valueDraw } = this.state;
+    const { valueDeposit } = this.state;
     const { balance, dispatch, history } = this.props;
-    const newDraw = parseFloat(balance) - parseFloat(valueDraw);
-    dispatch(changeBalance(newDraw));
+    const newDeposit = parseFloat(balance) + parseFloat(valueDeposit);
+    dispatch(changeBalance(newDeposit));
     history.push('/myStocks');
   }
   
   checkButton = () => {
-    const { valueDraw } = this.state;
-    const { balance } = this.props;
+    const { valueDeposit } = this.state;
     let isDisable = true;
-    if (valueDraw != 0 && valueDraw <= balance) {
+    if (valueDeposit != 0) {
       isDisable = false;
     }
     return isDisable;
   }
 
   render() {
-    const { valueDraw } = this.state;
+    const { valueDeposit } = this.state;
     const { balance } = this.props;
     return (
       <div>
@@ -44,17 +43,17 @@ class Draw extends React.Component {
 
         <form>
           <Input 
-            label="Valor do Saque"
-            idFor="draw"
-            name="valueDraw"
+            label="Valor do Deposito"
+            idFor="deposit"
+            name="valueDeposit"
             type="number"
-            id="draw-input"
-            value={ valueDraw }
+            id="deposit-input"
+            value={ valueDeposit }
             onChange={ this.handleChange }
           />
 
           <Button 
-            id="confirm-draw"
+            id="confirm-deposit"
             label="Confirmar"
             name="confirmButton"
             type="button"
@@ -67,7 +66,7 @@ class Draw extends React.Component {
   }
 }
 
-Draw.propTypes = {
+Deposit.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
@@ -79,4 +78,4 @@ const mapStateToProps = ({ user }) => ({
   balance: user.balance,
 });
 
-export default connect(mapStateToProps, null)(Draw);
+export default connect(mapStateToProps, null)(Deposit);
