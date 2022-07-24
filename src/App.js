@@ -10,14 +10,16 @@ import './services/server';
 
 function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={ Login } />
-        <Route exact path="/myStocks" component={ MyStocks } />
-        <Route exact path="/stockMarket" component={ StockMarket } />
-        <Route exact path="/draw" component={ Draw } />
-        <Route exact path="/deposit" component={ Deposit } />
-      </Switch>
+    <div className='lg:max-h-screen lg:flex items-center place-content-center p-80'>
+      <div className='grid justify-items-center bg-alice shadow-xl rounded-xl p-10 w-2/3'>
+        <Switch>
+          <Route exact path="/" component={ Login } />
+          <Route exact path="/myStocks" component={ MyStocks } />
+          <Route exact path="/stockMarket" component={ StockMarket } />
+          <Route exact path="/draw" component={ Draw } />
+          <Route exact path="/deposit" component={ Deposit } />
+        </Switch>
+      </div>
     </div>
   );
 }

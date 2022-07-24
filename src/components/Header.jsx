@@ -7,17 +7,24 @@ class Header extends React.Component {
   render() {
     const { email, balance } = this.props;
     return (
-      <header>
-        <div><h2 data-testid="email-field">{ email }</h2></div>
-
-        <div><h2 data-testid="balance-field">{ balance.toFixed(2) }</h2></div>
-
-        <div>
-          <Link to="/draw" data-testid="link-to-draw"> Sacar </Link>
+      <header className='text-xl grid grid-cols-1 divide-y divide-middle shadow-xl p-5 rounded-xl'>
+        <div className='text-center pb-3'>
+          <h2 data-testid="email-field">Olá, { email }</h2>
         </div>
 
-        <div>
-          <Link to="/deposit" data-testid="link-to-deposit"> Depositar </Link>
+        <div className='flex flex-row items-center space-x-3 pt-3'>
+          <div className='justify-self-start'>
+            <h2 data-testid="balance-field">Saldo</h2>
+            <h2 data-testid="balance-value">R$ { balance.toFixed(2) }</h2>
+          </div>
+
+          <div className='cursor-pointer uppercase text-center hover:text-alice hover:bg-lavender p-3 rounded-md bg-mauve'>
+            <Link to="/draw" data-testid="link-to-draw"> Sacar </Link>
+          </div>
+
+          <div className='cursor-pointer uppercase text-center hover:text-alice hover:bg-lavender p-3 rounded-md bg-mauve'>
+            <Link to="/deposit" data-testid="link-to-deposit"> Depositar </Link>
+          </div>
         </div>
       </header>
     );
