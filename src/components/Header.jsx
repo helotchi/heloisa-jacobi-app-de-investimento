@@ -15,6 +15,10 @@ class Header extends React.Component {
         <div>
           <Link to="/draw" data-testid="link-to-draw"> Sacar </Link>
         </div>
+
+        <div>
+          <Link to="/deposit" data-testid="link-to-deposit"> Depositar </Link>
+        </div>
       </header>
     );
   }
