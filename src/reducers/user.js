@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   email: '',
   name: '',
   balance: 50,
-  investedStocks: 0,
+  investedStocks: [],
 };
 
 function userReducer(state = INITIAL_STATE, action) {

@@ -7,7 +7,7 @@ class Header extends React.Component {
   render() {
     const { email, balance } = this.props;
     return (
-      <header className='text-xl grid grid-cols-1 divide-y divide-middle shadow-xl p-5 rounded-xl'>
+      <header className='grid grid-cols-1 divide-y divide-middle shadow-xl p-5 rounded-xl'>
         <div className='text-center pb-3'>
           <h2 data-testid="email-field">Olá, { email }</h2>
         </div>
@@ -18,12 +18,22 @@ class Header extends React.Component {
             <h2 data-testid="balance-value">R$ { balance.toFixed(2) }</h2>
           </div>
 
-          <div className='cursor-pointer uppercase text-center hover:text-alice hover:bg-lavender p-3 rounded-md bg-mauve'>
-            <Link to="/draw" data-testid="link-to-draw"> Sacar </Link>
+          <div>
+            <Link 
+              to="/draw"
+              data-testid="link-to-draw"
+              className='cursor-pointer uppercase text-center hover:text-alice hover:bg-lavender p-3 rounded-md bg-mauve'> 
+              Sacar
+            </Link>
           </div>
 
-          <div className='cursor-pointer uppercase text-center hover:text-alice hover:bg-lavender p-3 rounded-md bg-mauve'>
-            <Link to="/deposit" data-testid="link-to-deposit"> Depositar </Link>
+          <div>
+            <Link 
+              to="/deposit" 
+              data-testid="link-to-deposit"
+              className='cursor-pointer uppercase text-center hover:text-alice hover:bg-lavender p-3 rounded-md bg-mauve'> 
+              Depositar
+            </Link>
           </div>
         </div>
       </header>

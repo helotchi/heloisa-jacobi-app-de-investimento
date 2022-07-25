@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
 class Table extends React.Component {
@@ -7,12 +8,23 @@ class Table extends React.Component {
     const { stocks } = this.props;
     return stocks.length > 0 && (
       stocks.map(({ id, name, value }) => (
-        <tr key={ id } id={ id }>
-          <td>{ id }</td>
-          <td>{ name }</td>
-          <td>{ parseFloat(value).toFixed(2) }</td>
-          {/* <td>{ this.nameCurrency(currency) }</td>
-          <td>{ this.deleteButton(id) }</td> */}
+        <tr key={ id } id={ id } className='grid grid-cols-3 justify-items-start space-x-3'>
+          <td className='justify-self-center'>Imagem</td>
+          <td className='flex flex-col'>
+            <div>{ name }</div>
+            <p className='text-sm'>{ id }</p>
+          </td>
+          <td className='justify-self-end flex flex-col'>
+            <div>{ parseFloat(value).toFixed(2) }</div>
+            <div>
+              <Link 
+                to={`/buyStock/${id}`}
+                data-testid="link-to-draw"
+                className='cursor-pointer text-center hover:text-alice hover:bg-lavender p-1.5 rounded-md bg-mauve'> 
+                Comprar
+              </Link>
+            </div>
+          </td>
         </tr>
       ))
     );
@@ -24,10 +36,9 @@ class Table extends React.Component {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Valor</th>
-              <th>Ações</th>
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +51,6 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   stocks: PropTypes.arrayOf(PropTypes.object),
 };
 
