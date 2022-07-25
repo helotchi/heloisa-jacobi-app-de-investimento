@@ -6,6 +6,8 @@ import MyStocks from './pages/MyStocks';
 import StockMarket from './pages/StockMarket';
 import Draw from './pages/Draw';
 import Deposit from './pages/Deposit';
+import BuyStock from './pages/BuyStock';
+import SellStock from './pages/SellStock';
 import './services/server';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
           <Route exact path="/stockMarket" component={ StockMarket } />
           <Route exact path="/draw" component={ Draw } />
           <Route exact path="/deposit" component={ Deposit } />
+          <Route exact path="/buyStock/:stockId" component={ BuyStock } />
+          <Route exact path="/sellStock" component={ SellStock } />
         </Switch>
       </div>
     </div>

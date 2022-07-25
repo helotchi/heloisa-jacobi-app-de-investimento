@@ -18,10 +18,14 @@ class StockMarket extends React.Component {
   }
   
   render() {
+    const { stocks } = this.props;
     return (
       <div>
         <Header />
-        <Table />
+        
+        <div className="grid justify-items-center pt-5">
+          <Table stocks={ stocks } />
+        </div>
       </div>
     );
   }
@@ -29,6 +33,15 @@ class StockMarket extends React.Component {
 
 StockMarket.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  stocks: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default connect()(StockMarket);
+StockMarket.defaultProps = {
+  stocks: () => [],
+};
+
+const mapStateToProps = ({ stocks }) => ({
+  stocks: stocks.stocks,
+});
+
+export default connect(mapStateToProps, null)(StockMarket);
